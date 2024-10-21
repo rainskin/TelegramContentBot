@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "telegramcontentbot"
+version = "0.1.0"
+description = ""
+authors = ["rainskin <homemadepunk@yandex.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pyrogram = "^2.0.106"
+aiogram = "2.23.1"
+motor = "^3.6.0"
+envparse = "^0.2.0"
+tgcrypto = "^1.2.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
