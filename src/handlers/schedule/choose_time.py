@@ -32,6 +32,7 @@ async def _(msg: types.Message, state: FSMContext):
             await msg.answer(f"Некорректно указано время: {i}")
             return
 
+    await state.update_data(time=time)
     await bot.send_message(msg.from_user.id, f'Ты выбрал следующие временные слоты:\n{time}',
                            reply_markup=keyboards.finish_schedule_kb)
     await States.accept.set()
