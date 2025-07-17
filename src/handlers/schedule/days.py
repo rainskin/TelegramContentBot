@@ -52,7 +52,7 @@ async def schedule(message: types.Message, state: FSMContext):
         days = [first_day]
 
     await state.update_data(days=days)
-    await bot.send_message(message.chat.id, 'Теперь выбери время', reply_markup=keyboards.choose_time_kb)
+    await bot.send_message(message.chat.id, 'Теперь выбери время или укажи в формат [11 15 23]', reply_markup=keyboards.choose_time_kb)
     await States.choosing_time.set()
 
 

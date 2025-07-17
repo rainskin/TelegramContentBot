@@ -4,7 +4,6 @@ BOT_TOKEN = env.get('BOT_TOKEN')
 
 MONGO_URL = env.get('MONGO_URL')
 MONGO_DB_NAME = env.get('MONGO_DB_NAME')
-
 API_ID = env.get_int('API_ID')
 API_HASH = env.get('API_HASH')
 

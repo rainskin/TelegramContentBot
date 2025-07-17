@@ -11,5 +11,7 @@ class Admins:
 
     async def is_superadmin(self, tg_id: int) -> bool:
         admin = await self.collection.find_one({'id': tg_id})
+
         if admin:
             return admin.get('main admin')
+        return False

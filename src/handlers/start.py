@@ -6,7 +6,6 @@ import keyboards
 import texts
 from config import UPLOAD_CHANNEL_ID
 from core import db
-from core.db import users
 from loader import dp
 
 COMMANDS = [
@@ -46,7 +45,7 @@ async def cmd_start(msg: types.Message, state: FSMContext):
 
     elif chat_type == 'supergroup' or chat_type == 'chat':
         channel_owner_id = msg.from_user.id
-        sale_group_id = await users.get_sale_group_id(channel_owner_id)
+        sale_group_id = await db.users.get_sale_group_id(channel_owner_id)
 
         if not sale_group_id:
             return
@@ -61,9 +60,9 @@ async def cmd_start(msg: types.Message, state: FSMContext):
 async def register_user(msg: types.Message):
     chat_id = msg.chat.id
 
-    if not await users.is_new(chat_id):
+    if not await db.users.is_new(chat_id):
         return
 
     name = msg.chat.full_name
     username = msg.chat.username
-    await users.add_user(name, username, chat_id)
+    await db.users.add_user(name, username, chat_id)
